@@ -18,7 +18,7 @@ Ferramentas utilizadas:
 * GitHub: para documentação do projeto.
 
 ## 4. Fonte dos Dados
-
+[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
 ## 5. Input
 * olist_customers_dataset.csv: contém informações sobre o cliente e sua localização. 
