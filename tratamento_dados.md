@@ -1,7 +1,6 @@
 # Tratamento e estruturação de dados
 
-Este documento detalha o processo de limpeza, padronização e validação dos dados utilizados no projeto **Brazilian E-Commerce: Insights with SQL and Power BI**.  
-O objetivo é garantir a integridade e consistência das informações antes da modelagem e análise no Power BI.
+Este documento detalha o processo de limpeza, padronização e validação dos dados utilizados deste projeto. O objetivo é garantir a integridade e consistência das informações antes da modelagem e análise no Power BI.
 
 ## :compass: 1. Análise Exploratória Inicial
 A análise inicial teve como objetivo avaliar a integridade, consistência e qualidade dos dados em cada tabela do conjunto Olist. Foram verificados valores nulos, compatibilidade de tipos de dados e duplicatas em colunas-chave.
