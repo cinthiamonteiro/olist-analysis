@@ -156,19 +156,19 @@ Com base no diagnóstico, destacam-se as seguintes linhas de investigação e a�
 
 ## 8. Estrutura do Projeto
 
- olist-analytics
-├── README.md
-├── dashboard/
-│   ├── README.md
-│   ├── olist_clientes.png
-│   ├── olist_operacao.png
-│   └── olist_vendas.png
-├── data/
-│   └── README.md
-├── docs/
-│   └── tratamento_dados.md
-└── notebooks/
-     └── olist_brazilian_ecommerce.ipynb
+ **olist-analytics** <br>
+├── README.md<br>
+├── **dashboard/** <br>
+│   ├── README.md<br>
+│   ├── olist_clientes.png<br>
+│   ├── olist_operacao.png<br>
+│   └── olist_vendas.png<br>
+├── **data/** <br>
+│   └── README.md<br>
+├── **docs/** <br>
+│   └── tratamento_dados.md<br>
+└── **notebooks/** <br>
+     └── olist_brazilian_ecommerce.ipynb<br>
 
 - **README.md**: documentação principal do projeto, incluindo contexto, modelagem, métricas e principais insights.
 - **dashboard/**: documentação do dashboard em Power BI, com imagens das principais abas e link para a versão interativa.
