@@ -14,4 +14,4 @@ Esta pasta representa conceitualmente as etapas de tratamento e persistência do
 
 - **Consumo do banco no Power BI para construção do dashboard**
 
-O detalhamento completo das etapas de tratamento encontra-se em 'docs/tratamento_dados.md'.
+O detalhamento completo das etapas de tratamento encontra-se em _'docs/tratamento_dados.md'_ e o banco de dados pode ser acessado no link a seguir [Repositório Google Drive](https://drive.google.com/drive/folders/18YKWzozjJjoJCzyFJHrzurSAhEMPEArx?usp=sharing).
