@@ -12,15 +12,15 @@ A partir de uma base pública de dados, este estudo realiza uma exploração det
 
 ## 3. Escopo Técnico
 Ferramentas utilizadas:
-* SQLite: para armazenamento e consultas SQL sobre os dados brutos.
-* Python (*Google Colab*): para conexão com o banco, manipulação de dados e criação de views.
-* Power BI: para visualização dos resultados e construção de dashboards interativos.
-* GitHub: para documentação do projeto.
+* **SQLite**: para armazenamento e consultas SQL sobre os dados brutos.
+* **Python** (*Google Colab*): para conexão com o banco, manipulação de dados e criação de views.
+* **Power BI**: para visualização dos resultados e construção de dashboards interativos.
+* **GitHub**: para documentação do projeto.
 
 ## 4. Fonte dos Dados
 [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
-## 5. Input
+## 5. Dataset
 * olist_customers_dataset.csv: contém informações sobre o cliente e sua localização. 
 * olist_geolocation_dataset.csv: contém informações dos CEPs brasileiros e suas coordenadas.
 * olist_order_items_dataset.csv: inclui as informações dos produtos comprados em cada pedido.
@@ -52,7 +52,7 @@ Esse processo incluiu:
 
 Ao final, os dados tratados foram organizados em um modelo relacional no SQLite, servindo de base para a criação das views analíticas consumidas no Power BI.
 
-Para detalhes sobre decisões de tratamento, exceções e validações realizadas, consulte o documento _'tratamento_dados.md'_
+**Para detalhes sobre decisões de tratamento, exceções e validações realizadas, consulte o documento _'tratamento_dados.md'_.**
 
 ### 6.2. Modelagem
 Após o processo de tratamento e padronização, os dados foram organizados em um modelo relacional no SQLite, estruturado a partir de tabelas de fatos e dimensões. O objetivo dessa etapa foi criar uma base consistente, integrada e performática para suportar análises financeiras, logísticas e de satisfação do cliente.
@@ -72,7 +72,7 @@ A modelagem contempla as seguintes tabelas principais:
 * fact_payments: registros de pagamentos associados aos pedidos
 * fact_reviews: avaliações realizadas pelos clientes
 
-Os relacionamentos entre as tabelas foram definidos por meio de chaves primárias e estrangeiras, garantindo integridade referencial entre pedidos, clientes, produtos, vendedores, pagamentos e avaliações. 
+**Os relacionamentos entre as tabelas foram definidos por meio de chaves primárias e estrangeiras**, garantindo integridade referencial entre pedidos, clientes, produtos, vendedores, pagamentos e avaliações. 
 
 A modelagem foi pensada para que o Power BI consuma dados já organizados e semanticamente coerentes, reduzindo a necessidade de transformações adicionais.
 
@@ -109,41 +109,42 @@ As views foram construídas a partir de indicadores que orientaram a análise do
 * Taxa de recompra
 * Distribuição de avaliações (NPS)
 
-Ao disponibilizar essas métricas por meio de views, o Power BI passa a consumir dados já consolidados, limpos e padronizados, o que reduz a complexidade do modelo e facilita a criação de dashboards mais estáveis e confiáveis.
+**Ao disponibilizar essas métricas por meio de views, o Power BI passa a consumir dados já consolidados, limpos e padronizados, o que reduz a complexidade do modelo e facilita a criação de dashboards mais estáveis e confiáveis.**
 
 ## 7. Principais Resultados e Insights
 Esta seção reúne os principais achados da análise exploratória e do dashboard, organizados por perspectiva de negócio.
 
 ### 7.1. Diagnóstico
 
-📌 **Visão geral (big numbers)**
-Ao longo do período analisado (setembro/2016 a setembro/2018), a Olist registrou mais de 98 mil pedidos válidos, totalizando um faturamento superior a R$ 15 milhões e um ticket médio de R$ 160,25. Nesse intervalo, mais de 96 mil clientes utilizaram a plataforma, sendo aproximadamente 12% clientes recorrentes nesse período. Do ponto de vista operacional, 93% dos pedidos foram entregues dentro do prazo, resultado que se reflete em um NPS de 63, indicando um elevado nível de satisfação dos clientes.
+📌 **Visão geral (big numbers)** <br>
+
+Ao longo do período analisado (setembro/2016 a setembro/2018), a Olist registrou mais de **98 mil pedidos válidos**, totalizando um **faturamento superior a R$ 15 milhões e um ticket médio de R$ 160,25**. Nesse intervalo, mais de 96 mil clientes utilizaram a plataforma, sendo aproximadamente **12% clientes recorrentes** nesse período. Do ponto de vista operacional, **93% dos pedidos foram entregues dentro do prazo**, resultado que se reflete em um **NPS de 63**, indicando um elevado nível de satisfação dos clientes.
 
 💰 **Vendas**
-* Observa-se uma concentração de vendedores nas regiões Sul e Sudeste do Brasil, o que deve ser analisado em conjunto com a distribuição geográfica dos clientes.
-* A receita apresenta crescimento levemente acentuado no final de 2017, com pico em novembro, possivelmente influenciado pela sazonalidade do varejo (festas de fim de ano). No entanto, o comportamento volta a se mostrar mais linear no início de 2018, e o período analisado não é suficiente para confirmar uma tendência estrutural de crescimento sazonal.
-* O ticket médio dos pedidos cancelados é superior ao dos pedidos concluídos, indicando a necessidade de investigação das causas de cancelamento, especialmente em pedidos de maior valor.
+* Observa-se uma **concentração de vendedores nas regiões Sul e Sudeste do Brasil**, o que deve ser analisado em conjunto com a distribuição geográfica dos clientes.
+* **A receita apresenta crescimento levemente acentuado no final de 2017, com pico em novembro, possivelmente influenciado pela sazonalidade do varejo** (festas de fim de ano). No entanto, o comportamento volta a se mostrar mais linear no início de 2018, e o período analisado não é suficiente para confirmar uma tendência estrutural de crescimento sazonal.
+* **O ticket médio dos pedidos cancelados é superior ao dos pedidos concluídos**, indicando a necessidade de investigação das causas de cancelamento, especialmente em pedidos de maior valor.
 * As categorias com maior participação em vendas são:
   * Beleza e saúde
   * Relógios e presentes
   * Cama, mesa e banho
 
-Observa-se um grande número de categorias com baixa participação em vendas, o que dificulta análises agregadas e comparações diretas entre grupos de produtos. Esse comportamento pode ser explicado por diferentes hipóteses não excludentes:
+Observa-se um **grande número de categorias com baixa participação em vendas**, o que dificulta análises agregadas e comparações diretas entre grupos de produtos. Esse comportamento pode ser explicado por diferentes hipóteses não excludentes:
 * Falta de padronização na categorização
 * Presença de uma cauda longa de produtos, característica comum em marketplaces, onde muitas categorias possuem baixo volume individual, mas representam diversidade de oferta.
 * Baixa maturidade ou curadoria do catálogo, com inclusão de categorias pouco relevantes do ponto de vista comercial.
 * Distribuição desigual da demanda entre categorias
 
 👥 **Clientes**
-* O NPS de 62 indica um bom nível de satisfação quando comparado a benchmarks do setor de varejo e e-commerce, reforçado pela concentração de aproximadamente 60% das avaliações com nota máxima (5 estrelas).
-* Apesar da alta satisfação, há baixa retenção de clientes: apenas 12% realizaram mais de uma compra no período analisado (setembro/2016 a setembro/2018), com média de 1,18 pedidos por cliente.
-* A análise conjunta da receita acumulada, do crescimento da base de clientes e da baixa retenção indica que o crescimento da receita está fortemente condicionado à expansão da base de clientes. Esse cenário pode representar um risco no longo prazo, especialmente considerando os custos de aquisição e expansão dessa base.
+* **O NPS de 63 indica um bom nível de satisfação quando comparado a benchmarks do setor de varejo e e-commerce**, reforçado pela concentração de aproximadamente 60% das avaliações com nota máxima (5 estrelas).
+* Apesar da alta satisfação, há baixa retenção de clientes: **apenas 12% realizaram mais de uma compra no período analisado (setembro/2016 a setembro/2018), com média de 1,18 pedidos por cliente**.
+* A análise conjunta da receita acumulada, do crescimento da base de clientes e da baixa retenção indica que o **crescimento da receita está fortemente condicionado à expansão da base de clientes**. Esse cenário pode representar um risco no longo prazo, especialmente considerando os custos de aquisição e expansão dessa base.
 * A distribuição geográfica dos clientes também apresenta concentração no Sul e Sudeste, no entanto menor quando comparada à dos vendedores. Isso pode indicar oportunidades de mercado ainda não plenamente exploradas nas regiões de menor concentração que podem impactar custos logísticos e níveis de serviço.
 
-🚚 **Operação e logística**
-* A maior parte dos pedidos foi enviada e entregue dentro do prazo, além de apresentarem, em média, antecedência relevante em relação à data estimada. Isso pode indicar eficiência operacional ou estimativas conservadoras de prazo — hipótese que merece investigação adicional.
+🚚 **Operação**
+* **A maior parte dos pedidos foi enviada e entregue dentro do prazo, além de apresentarem, em média, antecedência relevante em relação à data estimada**. Isso pode indicar eficiência operacional ou estimativas conservadoras de prazo — hipótese que merece investigação adicional.
 * O tempo médio de entrega por estado de origem do vendedor mostra tendência de entregas mais rápidas para vendedores localizados no Sul e Sudeste. Destaca-se ainda que as diferenças entre as origens não são muito altas - no caso do Amazonas, origem com maior média de entrega, o valor é impactado por um outlier, e como há apenas um vendedor no estado, o indicador apresenta maior viés.
-* O tempo médio de aprovação (~6 horas) pode estar associado à participação relevante de boletos como meio de pagamento. Essa hipótese sugere uma oportunidade de investigação adicional para possíveis ganhos operacionais e redução de cancelamentos.
+* **O tempo médio de aprovação (~6 horas) pode estar associado à participação relevante de boletos como meio de pagamento**. Essa hipótese sugere uma oportunidade de investigação adicional para possíveis ganhos operacionais e redução de cancelamentos.
   
 ### 7.2. Recomendações e próximos passos
 Com base no diagnóstico, destacam-se as seguintes linhas de investigação e ação:
@@ -173,8 +174,8 @@ Com base no diagnóstico, destacam-se as seguintes linhas de investigação e a�
 - **README.md**: documentação principal do projeto, incluindo contexto, modelagem, métricas e principais insights.
 - **dashboard/**: documentação do dashboard em Power BI, com imagens das principais abas e link para a versão interativa.
 - **data/**: descrição das fontes de dados e decisões relacionadas ao armazenamento e versionamento dos dados.
-- **notebooks/**: notebooks utilizados para exploração, limpeza, padronização e preparação dos dados.
 - **docs/**: documentação complementar do projeto, com detalhamento técnico do tratamento e validação dos dados.
+- **notebooks/**: notebooks utilizados para exploração, limpeza, padronização e preparação dos dados.
 
 ## 9. Como Reproduzir o Projeto
 
@@ -189,8 +190,7 @@ Para reproduzir o projeto:
 3. Utilize o banco SQLite gerado como fonte de dados no Power BI Desktop.
 4. Replique as métricas e visualizações conforme documentado neste README e na pasta _‘dashboard/’_.
 
-Os critérios de tratamento dos dados estão detalhados em _‘docs/tratamento_dados.md’_,
-e as métricas analíticas são descritas na seção de modelagem deste README.
+Os critérios de tratamento dos dados estão detalhados em _‘docs/tratamento_dados.md’_, e as métricas analíticas são descritas na seção de modelagem deste README.
 
 
 ## 10. Créditos e Licença
