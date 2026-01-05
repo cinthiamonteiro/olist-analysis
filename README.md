@@ -158,6 +158,7 @@ Com base no diagnóstico, destacam-se as seguintes linhas de investigação e a�
 ## 8. Estrutura do Projeto
 
  **olist-analytics** <br>
+├── LICENSE
 ├── README.md<br>
 ├── **dashboard/** <br>
 │   ├── README.md<br>
